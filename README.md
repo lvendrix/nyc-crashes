@@ -12,9 +12,8 @@ Clean properly a dataset for the Machine Learning process.
 
 ## Database
 
-For this data cleaning project, we are working with a sample of the database ['2015 Street Tree Census - Tree Data'](https://data.cityofnewyork.us/Environment/2015-Street-Tree-Census-Tree-Data/uvpi-gqnh) provided by the Department of Parks and Recreation (DPR). The original database has information about 684k trees. In our sample, we have 100k trees (14,62%).
-
-We find 28 columns (already combining the date and hour together when loading the database). All are not useful for machine learning, so we'll do some cleaning and only keep the relevant ones. Some information is also redundant, so we'll get rid of them.
+We started with 28 columns and 100.000 rows
+We finish with 52 columns and 91.792 entries
 
 ## Data visualization
 We create a map in Plotly to see where crashes are happening in NYC.
@@ -37,7 +36,7 @@ We create a map in Plotly to see where crashes are happening in NYC.
 - 'cross_street_name'
 - 'collision_id'
 
-### To keep it simple, we remove information related to the vehicle type
+### To keep it simple, we remove columns related to the vehicle type
 
 ## New columns
 Based on 'date_time', I create new useful information easier to process for the ML:
@@ -47,4 +46,5 @@ Based on 'date_time', I create new useful information easier to process for the 
 - 'month'
 - 'year'
 
-## We One-Hot Code the columns related to the 'Contributing factors'
+## We One Hot Encode the columns related to the 'Contributing factors'
+This creates a lot of new columns. We should try to flatten it to reduce the number of columns, but that would also result in a loss of data (which vehicle has which factor).
